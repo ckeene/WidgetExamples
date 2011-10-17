@@ -8,7 +8,7 @@ License and Author
 
 Author:: Chris Keene (<http://www.linkedin.com/in/ctkeene>)
 
-Copyright 2011 Ari Lerner
+Copyright 2011 Chris Keene
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

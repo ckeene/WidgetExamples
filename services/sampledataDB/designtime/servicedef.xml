@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="sampledataDB.spring.xml" type="DataService" CRUDService="true" class="com.sampledatadb.SampledataDB" id="sampledataDB">
+    <operation name="getInventoryById">
+        <parameter isList="false" typeRef="java.lang.Integer" name="id"/>
+        <return isList="false" typeRef="com.sampledatadb.data.Inventory"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Actor">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="actorId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="firstName"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="lastName"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.FilmActor" name="filmActors"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Address">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="addressId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="address"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="address2"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="district"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="postalCode"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="phone"/>
+            <element allowNull="true" isList="false" typeRef="com.sampledatadb.data.City" name="city"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Customer" name="customers"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Store" name="stores"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.City">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="cityId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="city"/>
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.Country" name="country"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Address" name="addresses"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Country">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="countryId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="country"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.City" name="cities"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Customer">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="customerId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="firstName"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="lastName"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="email"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="active"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="createDate"/>
+            <element allowNull="true" isList="false" typeRef="com.sampledatadb.data.Address" name="address"/>
+            <element allowNull="true" isList="false" typeRef="com.sampledatadb.data.Store" name="store"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Department">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="deptid">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="budget"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="q1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="q2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="q3"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="q4"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="deptcode"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="location"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="tenantid"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Employee" name="employees"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Employee">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="eid">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="firstname"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="lastname"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="street"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="city"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="state"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="zip"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="birthdate"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="picurl"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="twitterid"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="tenantid"/>
+            <element allowNull="true" isList="false" typeRef="com.sampledatadb.data.Employee" name="employee"/>
+            <element allowNull="true" isList="false" typeRef="com.sampledatadb.data.Department" name="department"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Vacation" name="vacations"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Employee" name="employees"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Film">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="filmId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="title"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="description"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="releaseYear"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="rentalDuration"/>
+            <element allowNull="false" isList="false" typeRef="java.math.BigDecimal" name="rentalRate"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="length"/>
+            <element allowNull="false" isList="false" typeRef="java.math.BigDecimal" name="replacementCost"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="rating"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="specialFeatures"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.FilmActor" name="filmActors"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Inventory" name="inventories"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.FilmActor">
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.FilmActorId" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.Actor" name="actor"/>
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.Film" name="film"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Inventory">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="inventoryId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.Store" name="store"/>
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.Film" name="film"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Store">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="storeId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.Address" name="address"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Customer" name="customers"/>
+            <element allowNull="true" isList="true" typeRef="com.sampledatadb.data.Inventory" name="inventories"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.User">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="userid">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="username"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="password"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="role"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="tenantid"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.sampledatadb.data.Vacation">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="startdate"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="enddate"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="tenantid"/>
+            <element allowNull="false" isList="false" typeRef="com.sampledatadb.data.Employee" name="employee"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="id" javaType="com.sampledatadb.data.FilmActorId">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="actorId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="filmId">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+    </dataobjects>
+</service>
